@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pet_history %>
+
+<div>
+  <%= link_to "Editar historial", edit_pet_history_path(@pet_history) %> |
+  <%= link_to "Regresar todos los historiales", pet_histories_path %>
+
+  <%= button_to "Eliminar este historial", @pet_history, method: :delete %>
+</div>

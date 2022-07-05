@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Clients</h1>
+
+<div id="clients">
+
+  <table>
+    <thead>
+
+      <tr>
+        <th>Name</th>
+        <th>Nacimiento</th>
+        <th>Raza</th>
+        <th>Cliente</th>
+        <th></th> 
+        <th colspan="5"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @clients.each do |client| %>
+       <tr>
+          <td><%= client.name %></td>
+          <td><%= client.address %></td>
+          <td><%= client.email %></td>
+          <td><%= client.phone %></td>
+          <td><%= link_to "Ver", client %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<%= link_to "New client", new_client_path %>

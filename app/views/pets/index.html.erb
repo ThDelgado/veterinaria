@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mascotas</h1>
+
+<div id="pet">
+
+  
+   
+
+</div>
+
+<%= link_to "New pet", new_pet_path %>
+
+
+<p id="notice"><%= notice %></p>
+
+
+
+<table>
+  <thead>
+      
+    <tr>
+      <th>Name</th>
+      <th>Nacimiento</th>
+      <th>Raza</th>
+      <th>Cliente</th>      
+    <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.birth_date %></td>
+        <td><%= pet.dog_type %></td>
+        <td><%= pet.client_id %></td>
+        <td><%= link_to "Ver", pet %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

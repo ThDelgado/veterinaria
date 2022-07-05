@@ -1,0 +1,47 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pet %>
+
+<div>
+ 
+  <br>
+  <%= link_to "Nueva visita", new_pet_history_path %>
+  <br>
+  <br>
+  <%= link_to "Editar", edit_pet_path(@pet) %> |
+  <%= link_to "Regresar mascotas", pets_path %>
+
+  <%= button_to "Eliminar", @pet, method: :delete %>
+  <br>
+</div>
+<h4>Visitas</h4>
+
+    
+ <div class="container">
+    <table class="table table-light bg-light table-striped">
+        <thead>
+
+            <tr>
+                <th>#</th>
+                <th><%=sort_link(@q, :weight,"Peso") %></th>
+                <th><%=sort_link(@q, :height,"altura") %></th>
+                <th><%=sort_link(@q, :visit_date, "Visita", default_order: :asc) %></th>
+                <th><%=sort_link(@q, :description, "Descripcion") %></th>
+      
+            </tr>
+        </thead>
+        <tbody>
+          <% @pets.each do |pet|%>
+            <tr>
+              <th><%=pet.id %></th>
+               <th><%=link_to pet.weight, pet%></th>
+               <th><%=link_to pet.height, pet %></th>
+               <th><%=link_to pet.visit_date, pet%></th>
+               <th><%=link_to pet.description, pet%></th>
+            </tr>
+          <%end%>
+            
+        </tbody>
+    
+ </div>
+

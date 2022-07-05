@@ -1,0 +1,42 @@
+<p style="color: green"><%= notice %></p>
+<h4>Cliente</h4>
+<br>
+<%= render @client %>
+
+<div>
+  <%= link_to "Edit this client", edit_client_path(@client) %> |
+  <%= link_to "Back to clients", clients_path %>
+
+  <%= button_to "Destroy this client", @client, method: :delete %>
+</div>
+
+<br>
+<h4>Mascotas</h4>
+
+    
+ <div class="container">
+    <table class="table table-light bg-light table-striped">
+        <thead>
+
+            <tr>
+                <th>#</th>
+                <th><%=sort_link(@q, :name,"Nombre") %></th>
+                <th><%=sort_link(@q, :dog_type,"Raza") %></th>
+                <th><%=sort_link(@q, :client_id, "Dueño", default_order: :asc) %></th>
+      
+            </tr>
+        </thead>
+        <tbody>
+          <% @pets.each do |pet|%>
+            <tr>
+              <th><%=pet.id %></th>
+               <th><%=link_to pet.name, pet%></th>
+               <th><%=link_to pet.dog_type, pet %></th>
+               <th><%=link_to pet.client_id, pet%></th>
+            </tr>
+          <%end%>
+            
+        </tbody>
+    
+ </div>
+

@@ -1,0 +1,33 @@
+<h1 Class="text-center"> <%= pluralize(@posts.count,'resultados')%></h1>
+
+ 
+<h1>MASCOTAS</H1>
+ <div class="container">
+    <table class="table table-light bg-light table-striped">
+        <thead>
+            <tr>
+                <th><%=sort_link(@q, :name,"Nombre", default_order: :asc) %></th>
+                <th><%=sort_link(@q, :birth_date,"Nacimiento") %></th>
+                <th><%=sort_link(@q, :dog_type, "Raza") %></th>
+                <th><%=sort_link(@q, :client_id, "Dueño") %></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @pets.each do |pet|%>
+            <tr>
+               <th><%=link_to pet.name, pet%></th>
+               <th><%=link_to pet.birth_date, pet %></th>
+               <th><%=link_to pet.dog_type, pet%></th>
+               <th><%=link_to pet.client_id, pet%></th>
+               <th><%=link_to "Ver", %></th>
+               <th><%=link_to "Modificar", %></th>
+            </tr>
+          <%end%>
+          <%=link_to "Agregar mascota", %>
+        </tbody>
+    
+ </div>
+
