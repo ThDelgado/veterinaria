@@ -10,7 +10,7 @@ class ClientsController < ApplicationController
   def show
       @q = Pet.ransack(params[:q])
       @pets= @q.result(distinct: true)
-     
+      @all= PetHistory.all
   end
 
   # GET /clients/new

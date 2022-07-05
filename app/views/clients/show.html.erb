@@ -15,15 +15,16 @@
 
     
  <div class="container">
+
     <table class="table table-light bg-light table-striped">
         <thead>
 
             <tr>
                 <th>#</th>
                 <th><%=sort_link(@q, :name,"Nombre") %></th>
-                <th><%=sort_link(@q, :dog_type,"Raza") %></th>
-                <th><%=sort_link(@q, :client_id, "Dueño", default_order: :asc) %></th>
-      
+                <th>Altura maxima</th>
+                <th>Peso maximo</th>
+                <th>Visitas</th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +32,9 @@
             <tr>
               <th><%=pet.id %></th>
                <th><%=link_to pet.name, pet%></th>
-               <th><%=link_to pet.dog_type, pet %></th>
-               <th><%=link_to pet.client_id, pet%></th>
+               <th><%=@all.pluck(:height).max %></th>
+               <th><%=@all.pluck(:weight).max%></th>
+              <th><%=@all.count%></th>
             </tr>
           <%end%>
             
